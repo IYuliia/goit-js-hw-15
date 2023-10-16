@@ -11,11 +11,19 @@ const input = controls.querySelector("input");
 const createBtn = controls.querySelector("button[data-create]");
 const destroyBtn = controls.querySelector("button[data-destroy]");
 
-createBtn.addEventListener("click", createBoxes);
-destroyBtn.addEventListener("click", destroyBoxes);
+createBtn.addEventListener("click", handleCreateBoxes);
+destroyBtn.addEventListener("click", handleDestroyBoxes);
 
-function createBoxes() {
+function handleCreateBoxes() {
   const amount = input.value;
+  createBoxes(amount);
+}
+
+function handleDestroyBoxes() {
+  destroyBoxes();
+}
+
+function createBoxes(amount) {
   let boxesMarkup = "";
 
   for (let i = 0; i < amount; i += 1) {
